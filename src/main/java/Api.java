@@ -165,10 +165,10 @@ public class Api {
                     System.out.println("");
 
 
-                    if (address.containsValue("city_number") ||  !address.getStr("city_number").equals(UserConfig.cityId)) {
-                        if(address.containsValue("city_number")){
+                    if (address.containsValue("city_number") || !address.getStr("city_number").equals(UserConfig.cityId)) {
+                        if (address.containsValue("city_number")) {
                             System.err.println("城市id配置不正确，请填入UserConfig.cityId = " + stationInfo.getStr("city_number"));
-                        }else{
+                        } else {
                             System.err.println("城市id未从接口中获取，请人工确认城市id是否正确，通过抓包可以看到请求体中有city_number字段，上海默认0101，不用改");
                         }
                     } else {
@@ -518,4 +518,66 @@ public class Api {
         return false;
     }
 
+    /**
+     * get currentTime
+     */
+    public static String getCurrentTime(){
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int currentMinute = Calendar.getInstance().get(Calendar.MINUTE);
+        int currentSecond = Calendar.getInstance().get(Calendar.SECOND);
+        return currentHour + ":" + currentMinute + ":" + currentSecond + ": ";
+    }
+
+    /**
+     * getSamCovid19ProductList
+     * https://api-sams.walmartmobile.cn/api/v1/sams/decoration/portal/show/getPageData
+     */
+    public static void getSamCovid19ProductList() {
+        try {
+
+            HttpRequest httpRequest = HttpUtil.createPost("https://api-sams.walmartmobile.cn/api/v1/sams/decoration/portal/show/getPageData");
+            Map<String, String> headers = UserConfig.getHeaders4Sam();
+            httpRequest.addHeaders(headers);
+
+
+            Map<String, Object> request = UserConfig.getBody4Sam();
+            String param = JSONUtil.toJsonStr(request);
+//                     String result = HttpRequest.post("https://api-sams.walmartmobile.cn/api/v1/sams/decoration/portal/show/getPageData")
+//                    .header("device-type", "mini_program")
+//                    .body(param, "application/json")
+//                    .execute()
+//                    .body();
+            String result = httpRequest.body(param, "application/json").execute().body();
+            JSONObject object = JSONUtil.parseObj(result);
+//            System.out.println(object);
+            JSONObject data = object.getJSONObject("data");
+//            System.out.println(data);
+            JSONArray moduleList =  data.getJSONArray("pageModuleVOList");
+
+            for (int i = 0; i < moduleList.size(); i++) {
+                JSONObject module = moduleList.getJSONObject(i);
+                String moduleSign = module.getStr("moduleSign");
+                if("goodsModule".equals(moduleSign)) {
+                    JSONObject firstGood = module.getJSONObject("renderContent").getJSONArray("goodsList").getJSONObject(0);
+                    System.out.println(firstGood);
+                    /**
+                     * "spuId": "49043963", 清洁用品套餐
+                     */
+                    if (!"49043963".equals(firstGood.getStr("spuId"))) {
+                        System.out.println(Api.getCurrentTime() + "套餐已更新");
+                        Api.play();
+                    } else {
+                        System.out.println(Api.getCurrentTime() + "没有更新套餐");
+                    }
+                    return;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(Api.getCurrentTime() + "报错了");
+            Api.play();
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -1,3 +1,5 @@
+import cn.hutool.json.JSONObject;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,5 +80,88 @@ public class UserConfig {
         body.put("s_id", "");
         body.put("device_token", "");
         return body;
+    }
+
+    /**
+     * POST /api/v1/sams/decoration/portal/show/getPageData HTTP/1.1
+     * Host	api-sams.walmartmobile.cn
+     * Connection	keep-alive
+     * Content-Length	398
+     * system-language	CN
+     * content-type	application/json;charset=utf-8
+     * device-type	mini_program
+     * auth-token	0f7d247a1a3e9c82d71c8b92ae68495cc50f4d30e3758ccac318a06ce5ce0cbe
+     * Accept-Encoding	gzip,compress,br,deflate
+     * User-Agent	Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.20(0x1800142f) NetType/WIFI Language/zh_CN
+     * Referer	https://servicewechat.com/wxb344a8513eaaf849/230/page-frame.html
+     */
+    public static Map<String, String> getHeaders4Sam() {
+        Map<String, String> headers = new HashMap<>();
+
+        // ------------ 小程序 ------------
+//        headers.put("content-type", "application/json;charset=utf-8");
+//        headers.put("device-type", "mini_program");
+//        headers.put("auth-token", "0f7d247a1a3e9c82d71c8b92ae68495cc50f4d30e3758ccac318a06ce5ce0cbe");
+//        headers.put("accept-encoding", "gzip,compress,br,deflate");
+//        headers.put("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.20(0x1800142f) NetType/WIFI Language/zh_CN");
+//        headers.put("referer", "https://servicewechat.com/wx1e113254eda17715/425/page-frame.html");
+
+        // ------------ App ------------
+        headers.put("auth-token", "0f7d247a1a3e9c821414e50345a839f3c50f4d30e3758cca40a9ab8d436f08bb");
+        headers.put("app-version", "5.0.50.1");
+        headers.put("longitude", "121.734363");
+        headers.put("latitude", "31.172187000000001");
+        headers.put("device-id", "6cbcb1f1818fe502d556ae81000016c16309");
+        headers.put("device-type", "ios");
+        headers.put("Accept-Language", "zh-Hans-CN;q=1");
+        headers.put("Accept-Encoding", "gzip, deflate, br");
+        headers.put("apptype", "ios");
+        headers.put("device-name", "iPhone14,5");
+        headers.put("device-os-version", "15.4.1");
+        headers.put("User-Agent", "SamClub/5.0.50 (iPhone; iOS 15.4.1; Scale/3.00)");
+        headers.put("Content-Length", "242");
+        headers.put("system-language", "CN");
+
+        // ------------  填入以下6项 上面不要动 ------------
+//        headers.put("ddmc-device-id", "");
+//        headers.put("cookie", "");
+//        headers.put("ddmc-longitude", "");
+//        headers.put("ddmc-latitude", "");
+//        headers.put("ddmc-uid", "");
+//        headers.put("user-agent", "");
+        return headers;
+    }
+
+    public static JSONObject getBody4Sam() {
+        JSONObject jsonParam = new JSONObject();
+
+        // 设置参数------------ 小程序 ------------
+//        jsonParam.put("pageContentId", "1187641882302384150");
+//        jsonParam.put("modulePagination", true);
+//        jsonParam.put("pageNum", 1);
+//        jsonParam.put("pageSize", 20);
+//        jsonParam.put("latitude", 31.172187);
+//        jsonParam.put("longitude", 121.734363);
+//        jsonParam.put("uid", "262685834");
+//        jsonParam.put("appId", "wxb344a8513eaaf849");
+//        jsonParam.put("saasId", "1818");
+
+        // 设置参数------------ APP ------------
+        jsonParam.put("uid", "262685834");
+        jsonParam.put("pageContentId", "1187641882302384150");
+        jsonParam.put("authorize", true);
+        jsonParam.put("latitude", "31.172187000000001");
+        jsonParam.put("longitude", "121.734363");
+        JSONObject addressInfo = new JSONObject();
+        addressInfo.put("provinceCode", "");
+        addressInfo.put("receiverAddress", "江凌苑55号楼1303室");
+        addressInfo.put("districtCode", "");
+        addressInfo.put("cityCode", "");
+        jsonParam.put("addressInfo", addressInfo);
+
+        // ------------  填入这2项上面不要动 ------------
+//        jsonParam.put("s_id", "");
+//        jsonParam.put("device_token", "");
+        return jsonParam;
     }
 }

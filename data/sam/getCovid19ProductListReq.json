@@ -1,0 +1,39 @@
+{
+  "pageContentId": "1187641882302384150",
+  "modulePagination": true,
+  "pageNum": 1,
+  "pageSize": 20,
+  "latitude": 31.172187,
+  "longitude": 121.734363,
+  "storeInfoList": [
+    {
+      "storeId": "9991",
+      "storeType": 32,
+      "storeDeliveryAttr": [
+        10
+      ]
+    },
+    {
+      "storeId": "4807",
+      "storeType": 2,
+      "storeDeliveryAttr": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        12
+      ]
+    },
+    {
+      "storeId": "9996",
+      "storeType": 8,
+      "storeDeliveryAttr": [
+        1
+      ]
+    }
+  ],
+  "uid": "262685834",
+  "appId": "wxb344a8513eaaf849",
+  "saasId": "1818"
+}
