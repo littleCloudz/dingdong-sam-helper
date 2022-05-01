@@ -1,6 +1,5 @@
 import cn.hutool.core.util.RandomUtil;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,14 +16,6 @@ public class Application {
         }
     }
 
-    private static boolean timeTrigger(int hour, int minute, int second) {
-        sleep(1000);
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        int currentMinute = Calendar.getInstance().get(Calendar.MINUTE);
-        int currentSecond = Calendar.getInstance().get(Calendar.SECOND);
-        System.out.println("时间触发 当前时间 " + currentHour + ":" + currentMinute + ":" + currentSecond + " 目标时间 " + hour + ":" + minute + ":" + second);
-        return currentHour == hour && currentMinute == minute && currentSecond >= second;
-    }
 
     public static void main(String[] args) {
         //此为高峰期策略 通过同时获取或更新 购物车、配送、订单确认信息再进行高并发提交订单
@@ -54,11 +45,11 @@ public class Application {
 
 
         //5点59分30秒时间触发
-        while (policy == 2 && !timeTrigger(5, 59, 30)) {
+        while (policy == 2 && !Util.timeTrigger(5, 59, 30)) {
         }
 
         //8点29分30秒时间触发
-        while (policy == 3 && !timeTrigger(8, 29, 30)) {
+        while (policy == 3 && !Util.timeTrigger(8, 29, 30)) {
         }
 
 
@@ -70,7 +61,7 @@ public class Application {
             if (!Api.context.containsKey("end")) {
                 Api.context.put("end", new HashMap<>());
                 sleep(3000);
-                System.err.println("未成功下单，执行2分钟自动停止");
+                System.err.println(Util.getCurrentTime() + "未成功下单，执行2分钟自动停止");
             }
         }).start();
 
@@ -90,7 +81,7 @@ public class Application {
                     Map<String, Object> cartMap = Api.getCart(policy == 2 || policy == 3);
                     if (cartMap != null) {
                         if (Double.parseDouble(cartMap.get("total_money").toString()) < minOrderPrice) {
-                            System.err.println("订单金额：" + cartMap.get("total_money").toString() + " 不满足最小金额设置：" + minOrderPrice + " 继续重试");
+                            System.err.println(Util.getCurrentTime() + "订单金额：" + cartMap.get("total_money").toString() + " 不满足最小金额设置：" + minOrderPrice + " 继续重试");
                         } else {
                             Api.context.put("cartMap", cartMap);
                         }
@@ -134,7 +125,7 @@ public class Application {
                         continue;
                     }
                     if (Api.addNewOrder(UserConfig.addressId, Api.context.get("cartMap"), Api.context.get("multiReserveTimeMap"), Api.context.get("checkOrderMap"))) {
-                        System.out.println("铃声持续1分钟，终止程序即可，如果还需要下单再继续运行程序");
+                        System.out.println(Util.getCurrentTime() + "铃声持续1分钟，终止程序即可，如果还需要下单再继续运行程序");
                         Api.play();
                     }
                 }

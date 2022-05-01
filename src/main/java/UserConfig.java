@@ -14,10 +14,10 @@ public class UserConfig {
     public static final String cityId = "0101";//默认上海
 
     //站点id
-    public static final String stationId = "";
+    public static final String stationId = "5b1f5dc2c5702e26218d45c3";
 
     //收货地址id
-    public static final String addressId = "";
+    public static final String addressId = "60379ac4418dce2b9aa8f453";
 
     /**
      * 确认收货地址id和站点id
@@ -46,11 +46,14 @@ public class UserConfig {
 
         // ------------  填入以下6项 上面不要动 ------------
         headers.put("ddmc-device-id", "");
-        headers.put("cookie", "");
-        headers.put("ddmc-longitude", "");
-        headers.put("ddmc-latitude", "");
-        headers.put("ddmc-uid", "");
-        headers.put("user-agent", "");
+        /**
+         * 登陆已过期，修改cookie
+         */
+        headers.put("cookie", "DDXQSESSID=458u75h06u9v7u2ygy3672ug28v08y62d0phk369v396v7tjh6jq833mw25ghh44");
+        headers.put("ddmc-longitude", "121.734123");
+        headers.put("ddmc-latitude", "31.17336");
+        headers.put("ddmc-uid", "5ec8f752ebec587241e84bed");
+        headers.put("user-agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.20(0x1800142f) NetType/WIFI Language/zh_CN miniProgram/wx1e113254eda17715");
         return headers;
     }
 
@@ -77,8 +80,8 @@ public class UserConfig {
         body.put("openid", headers.get("ddmc-device-id"));
 
         // ------------  填入这2项上面不要动 ------------
-        body.put("s_id", "");
-        body.put("device_token", "");
+        body.put("s_id", "1894928ygv89hy0936vg3ddvgudv8d5hfd24p369v36vy3tjgp33833f9segwu0v");
+        body.put("device_token", "WFWVc5eQ20p7KRo9sUbVoHfGK21eEzQMZRWzsPtLZRecndCrIS0bPj6yUsULK69633ScPF85dbLfH67DXTqq/nYikmtvSyP5nLQ2FUPCwgjG/w8gZjQgjCg==1487577677129");
         return body;
     }
 

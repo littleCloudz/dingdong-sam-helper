@@ -106,10 +106,10 @@ public class Api {
         Boolean success = object.getBool("success");
         if (success == null) {
             if ("405".equals(object.getStr("code"))) {
-                print(false, actionName + "失败:" + "出现此问题有三个可能 1.偶发，无需处理 2.一个账号一天只能下两单  3.不要长时间运行程序，目前已知有人被风控了，暂时未确认风控的因素是ip还是用户或设备相关信息，如果要测试用单次执行模式，并发只能用于6点、8点半的前一分钟，然后执行时间不能超过2分钟，如果买不到就不要再执行程序了，切忌切忌");
+                print(false, Util.getCurrentTime() + actionName + "失败:" + "出现此问题有三个可能 1.偶发，无需处理 2.一个账号一天只能下两单  3.不要长时间运行程序，目前已知有人被风控了，暂时未确认风控的因素是ip还是用户或设备相关信息，如果要测试用单次执行模式，并发只能用于6点、8点半的前一分钟，然后执行时间不能超过2分钟，如果买不到就不要再执行程序了，切忌切忌");
                 print(false, "405问题解决方案，不保证完全有效,退出App账号重新登录，尝试刷新购物车和提交订单是否正常，如果正常退出小程序重新登录后再抓包，替换UserConfig中的cookie和device_token。");
             } else {
-                print(false, actionName + "失败,服务器返回无法解析的内容:" + JSONUtil.toJsonStr(object));
+                print(false, Util.getCurrentTime() + actionName + "失败,服务器返回无法解析的内容:" + JSONUtil.toJsonStr(object));
             }
             return false;
         }
@@ -118,7 +118,7 @@ public class Api {
         }
         if ("您的访问已过期".equals(object.getStr("message"))) {
             context.put("end", new HashMap<>());
-            System.err.println("用户信息失效，请确保UserConfig参数准确，并且微信上的叮咚小程序不能退出登录");
+            System.err.println(Util.getCurrentTime() + "用户信息失效，请确保UserConfig参数准确，并且微信上的叮咚小程序不能退出登录");
             return false;
         }
         String msg = null;
@@ -130,7 +130,7 @@ public class Api {
         } catch (Exception ignored) {
 
         }
-        print(false, actionName + " 失败:" + (msg == null || "".equals(msg) ? "未解析返回数据内容，全字段输出:" + JSONUtil.toJsonStr(object) : msg));
+        print(false, Util.getCurrentTime() + actionName + " 失败:" + (msg == null || "".equals(msg) ? "未解析返回数据内容，全字段输出:" + JSONUtil.toJsonStr(object) : msg));
         return false;
     }
 
@@ -140,7 +140,7 @@ public class Api {
      */
     public static void checkUserConfig() {
         try {
-            System.out.println("开始获取收货人信息");
+            System.out.println(Util.getCurrentTime() + "开始获取收货人信息");
             HttpRequest httpRequest = HttpUtil.createGet("https://sunquan.api.ddxq.mobi/api/v1/user/address/");
             Map<String, String> headers = UserConfig.getHeaders();
             httpRequest.addHeaders(headers);
@@ -152,13 +152,13 @@ public class Api {
                 return;
             }
             JSONArray validAddress = object.getJSONObject("data").getJSONArray("valid_address");
-            System.out.println("获取可用的收货地址条数：" + validAddress.size());
+            System.out.println(Util.getCurrentTime() + "获取可用的收货地址条数：" + validAddress.size());
             for (int i = 0; i < validAddress.size(); i++) {
                 JSONObject address = validAddress.getJSONObject(i);
                 if (address.getBool("is_default")) {
                     JSONObject stationInfo = address.getJSONObject("station_info");
 
-                    System.out.println("获取默认收货地址成功 请仔细核对站点和收货地址信息 站点信息配置错误将导致无法下单");
+                    System.out.println(Util.getCurrentTime() + "获取默认收货地址成功 请仔细核对站点和收货地址信息 站点信息配置错误将导致无法下单");
                     System.out.println("1.该地址对应城市名称为：" + stationInfo.get("city_name"));
                     System.out.println("2.该地址对应站点名称为：" + stationInfo.get("name"));
                     System.out.println("3.该地址详细信息：" + address.getStr("addr_detail") + " 手机号：" + address.getStr("mobile"));
@@ -190,7 +190,7 @@ public class Api {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.err.println("没有可用的默认收货地址，请自行登录叮咚设置该站点可用的默认收货地址");
+        System.err.println(Util.getCurrentTime() + "没有可用的默认收货地址，请自行登录叮咚设置该站点可用的默认收货地址");
     }
 
 
@@ -212,7 +212,7 @@ public class Api {
             if (!isSuccess(object, "勾选购物车全选按钮")) {
                 return;
             }
-            print(true, "勾选购物车全选按钮成功");
+            print(true, Util.getCurrentTime() + "勾选购物车全选按钮成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -246,7 +246,7 @@ public class Api {
             JSONObject data = object.getJSONObject("data");
 
             if (data.getJSONArray("new_order_product_list").size() == 0) {
-                print(false, "购物车无可买的商品");
+                print(false, Util.getCurrentTime() + "购物车无可买的商品");
                 if (!noProductsContinue) {
                     context.put("end", new HashMap<>());
                 }
@@ -328,11 +328,11 @@ public class Api {
                 if (time.getInt("disableType") == 0 && !time.getStr("select_msg").contains("尽快")) {
                     map.put("reserved_time_start", time.get("start_timestamp"));
                     map.put("reserved_time_end", time.get("end_timestamp"));
-                    print(true, "更新配送时间成功");
+                    print(true, Util.getCurrentTime() + "更新配送时间成功");
                     return map;
                 }
             }
-            print(false, "无可选的配送时间");
+            print(false, Util.getCurrentTime() + "无可选的配送时间");
             context.put("noReserve", new HashMap<>());
             context.remove("multiReserveTimeMap");
         } catch (Exception e) {
@@ -406,7 +406,7 @@ public class Api {
             String body = httpRequest.execute().body();
             JSONObject object = JSONUtil.parseObj(body);
 
-            if (!isSuccess(object, "更新订单确认信息")) {
+            if (!isSuccess(object, Util.getCurrentTime() + "更新订单确认信息")) {
                 return null;
             }
 
@@ -418,7 +418,7 @@ public class Api {
             map.put("total_money", order.get("total_money"));
             map.put("freight_real_money", order.getJSONArray("freights").getJSONObject(0).getJSONObject("freight").get("freight_real_money"));
             map.put("user_ticket_id", order.getJSONObject("default_coupon").get("_id"));
-            print(true, "更新订单确认信息成功");
+            print(true, Util.getCurrentTime() + "更新订单确认信息成功");
             return map;
         } catch (Exception e) {
             e.printStackTrace();
@@ -509,7 +509,7 @@ public class Api {
             context.put("success", new HashMap<>());
             context.put("end", new HashMap<>());
             for (int i = 0; i < 10; i++) {
-                System.out.println("恭喜你，已成功下单 当前下单总金额：" + cartMap.get("total_money"));
+                System.out.println(Util.getCurrentTime() + "恭喜你，已成功下单 当前下单总金额：" + cartMap.get("total_money"));
             }
             return true;
         } catch (Exception e) {
@@ -518,16 +518,7 @@ public class Api {
         return false;
     }
 
-    /**
-     * get currentTime
-     */
-    public static String getCurrentTime(){
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        int currentMinute = Calendar.getInstance().get(Calendar.MINUTE);
-        int currentSecond = Calendar.getInstance().get(Calendar.SECOND);
-        return currentHour + ":" + currentMinute + ":" + currentSecond + ": ";
-    }
-
+  
     /**
      * getSamCovid19ProductList
      * https://api-sams.walmartmobile.cn/api/v1/sams/decoration/portal/show/getPageData
@@ -564,17 +555,17 @@ public class Api {
                      * "spuId": "49043963", 清洁用品套餐
                      */
                     if (!"49043963".equals(firstGood.getStr("spuId"))) {
-                        System.out.println(Api.getCurrentTime() + "套餐已更新");
+                        System.out.println(Util.getCurrentTime() + "套餐已更新");
                         Api.play();
                     } else {
-                        System.out.println(Api.getCurrentTime() + "没有更新套餐");
+                        System.out.println(Util.getCurrentTime() + "没有更新套餐");
                     }
                     return;
                 }
             }
 
         } catch (Exception e) {
-            System.out.println(Api.getCurrentTime() + "报错了");
+            System.out.println(Util.getCurrentTime() + "报错了");
             Api.play();
             e.printStackTrace();
         }

@@ -17,4 +17,15 @@ public class Util {
         System.out.println("时间触发 当前时间 " + currentHour + ":" + currentMinute + ":" + currentSecond + " 目标时间 " + hour + ":" + minute + ":" + second);
         return currentHour == hour && currentMinute == minute && currentSecond >= second;
     }
+
+    /**
+     * get currentTime
+     */
+    public static String getCurrentTime(){
+        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int currentMinute = Calendar.getInstance().get(Calendar.MINUTE);
+        int currentSecond = Calendar.getInstance().get(Calendar.SECOND);
+        return currentHour + ":" + currentMinute + ":" + currentSecond + ": ";
+    }
+
 }
