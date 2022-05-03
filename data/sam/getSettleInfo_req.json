@@ -1,0 +1,26 @@
+{
+  "uid": "262685834",
+  "addressId": "145669797",
+  "deliveryInfoVO": {
+    "storeDeliveryTemplateId": "536742356565817110",
+    "deliveryModeId": "1002",
+    "storeType": "2"
+  },
+  "cartDeliveryType": 2,
+  "storeInfo": {
+    "storeId": "4807",
+    "storeType": "2",
+    "areaBlockId": "301072866345092630"
+  },
+  "couponList": [],
+  "isSelfPickup": 0,
+  "floorId": 1,
+  "goodsList": [
+    {
+      "isSelected": true,
+      "quantity": 1,
+      "spuId": "1282191",
+      "storeId": "4807"
+    }
+  ]
+}

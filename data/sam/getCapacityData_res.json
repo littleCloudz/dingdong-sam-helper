@@ -1,0 +1,49 @@
+{
+  "data": {
+    "capcityResponseList": [
+      {
+        "strDate": "2022/05/03 周二",
+        "deliveryDesc": "",
+        "deliveryDescEn": "",
+        "dateISFull": true,
+        "list": [
+          {
+            "startTime": "09:00",
+            "endTime": "21:00",
+            "timeISFull": true,
+            "disabled": false,
+            "closeDate": "2022-05-02",
+            "closeTime": "21:00",
+            "startRealTime": "1651539600000",
+            "endRealTime": "1651582800000"
+          }
+        ]
+      }
+    ],
+    "getPortalPerformanceTemplateResponse": {
+      "performanceTemplateId": "1190524344410054934",
+      "performanceTemplateName": "4807保供套餐",
+      "isPreappoint": 1,
+      "isFirstCapacity": 2,
+      "chooseDays": 1,
+      "isLimitAppointOrderMax": 1,
+      "appointOrderDays": 1,
+      "appointDate": null,
+      "isVerification": 2,
+      "verificationExpiryDays": 3,
+      "verificationExpiryHours": 24,
+      "deliveryDesc": "",
+      "deliveryDescEn": "",
+      "createTime": "2022-04-17T15:44:30.000+0000",
+      "updateTime": "2022-05-02T06:00:02.000+0000"
+    }
+  },
+  "code": "Success",
+  "msg": "",
+  "errorMsg": "",
+  "traceId": "3370f5b82082647d",
+  "requestId": "5fba9cec7c004cabbe0a81824ff4a584.360.16514734283857975",
+  "rt": 0,
+  "clientIp": null,
+  "success": true
+}

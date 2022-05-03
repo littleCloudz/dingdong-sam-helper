@@ -1,0 +1,148 @@
+{
+  "data": {
+    "saasId": "1818",
+    "uid": "262685834",
+    "floorId": 1,
+    "floorName": "普通商品",
+    "bannerInfo": {
+      "deliveryDelayTips": "尊敬的会员朋友，由于订单激增，订单配送可能出现延迟。给您带来的不便敬请谅解。疫情期间倡议无接触配送。"
+    },
+    "deliveryAddress": {
+      "addressId": "145669797",
+      "addressTag": "",
+      "countryName": "中国",
+      "countryCode": null,
+      "provinceName": "上海市",
+      "provinceCode": null,
+      "cityName": "上海市",
+      "cityCode": null,
+      "districtName": "浦东新区",
+      "districtCode": null,
+      "detailAddress": "江凌苑55号楼1303室",
+      "name": "张女士",
+      "phone": "18616104633",
+      "latitude": "31.172187000000001",
+      "longitude": "121.734363",
+      "isDefault": false
+    },
+    "settleDelivery": {
+      "deliveryType": 2,
+      "deliveryName": "全城配",
+      "deliveryDesc": null,
+      "expectArrivalTime": null,
+      "expectArrivalEndTime": null,
+      "storeDeliveryTemplateId": "536742356565817110",
+      "deliveryModeIdList": [
+        "1002"
+      ],
+      "areaBlockId": "301072866345092630",
+      "areaBlockName": "浦东特送C区",
+      "firstPeriod": 0
+    },
+    "selfPickupInfo": null,
+    "settleStandardPickupVO": null,
+    "goodsInfo": {
+      "amount": "4280",
+      "number": 1,
+      "weight": "1060000",
+      "goodsList": [
+        {
+          "storeId": "4807",
+          "storeType": null,
+          "spuId": "1282191",
+          "skuId": null,
+          "brandId": "10194688",
+          "categoryIdList": [
+            "10003012",
+            "10003059",
+            "10004813",
+            "10012080"
+          ],
+          "masterBizType": 1,
+          "viceBizType": 1,
+          "goodsName": "Member's Mark 大肉粽 800g",
+          "goodsImage": "https://sam-material-online-1302115363.file.myqcloud.com//sams-static/goods/3232223/6b993038-de57-4337-92b9-4906695764d8.jpg",
+          "quantity": 1,
+          "purchaseLimitVO": null,
+          "minPurchaseLimitVO": null,
+          "stockQuantity": 915,
+          "stockStatus": null,
+          "isPutOnSale": true,
+          "isAvailable": true,
+          "price": "4280",
+          "originPrice": "4280",
+          "deliveryAttr": 4,
+          "hostItem": "527363",
+          "hostUpc": [
+            "6907777034136",
+            "6907777034136",
+            "6907777034136",
+            "6907777034136"
+          ],
+          "sevenDaysReturn": false,
+          "addCartTime": null,
+          "deliveryTagId": null,
+          "promotionTag": null,
+          "minPurchaseTag": null,
+          "goodsLimitTag": null,
+          "warrantyExtensionList": null,
+          "giveawayList": null,
+          "weight": 1.06,
+          "emg": null,
+          "isSelected": true,
+          "isCollected": false,
+          "isPreSell": false,
+          "isRoutine": true,
+          "ticketId": null,
+          "payTotalPrice": null,
+          "discountTotalPrice": null,
+          "realSinglePrice": null,
+          "invalidReason": null,
+          "labelList": null,
+          "beltInfo": [],
+          "componentPath": null,
+          "cartDeliveryType": null,
+          "tagInfo": [],
+          "deliveryTypeList": []
+        }
+      ],
+      "discountVo": []
+    },
+    "deliveryDesc": "购物满299元免15KG运费，每增加100元，可增加减免5KG运费，以此类推。\n超过重量按1元/KG加收续重运费，重量不足1KG按照1KG计收重量费用。",
+    "discountsDesc": "当日或隔日达满299免运费",
+    "shopTicketTips": null,
+    "parkAndRefundTips": null,
+    "couponInfo": null,
+    "deliveryFee": "1500",
+    "packageFee": "0",
+    "promotionFee": "0",
+    "couponFee": "0",
+    "deliveryCouponFee": "0",
+    "totalAmount": "5780",
+    "isSupportInvoice": true,
+    "inCaseOfShortageList": [
+      {
+        "shortageId": 1,
+        "shortageDesc": "其他商品继续配送（缺货商品直接退款）",
+        "isDefault": true
+      },
+      {
+        "shortageId": 2,
+        "shortageDesc": "缺货时与我电话沟通",
+        "isDefault": false
+      }
+    ],
+    "isSelectShoppingNotes": true,
+    "storeName": "上海浦东店",
+    "showStoreName": true,
+    "orderChannelTag": null
+  },
+  "code": "Success",
+  "msg": "",
+  "errorMsg": "",
+  "traceId": "6e6a52bf84c552f4",
+  "requestId": "eb2923fddcf24d30a49affa17a874e00.1121.16514729477838291",
+  "rt": 0,
+  "clientIp": null,
+  "success": true
+}

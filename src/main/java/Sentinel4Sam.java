@@ -7,7 +7,7 @@ public class Sentinel4Sam {
 
 
     public static void main(String[] args) {
-//        //x点xx分xx秒时间触发
+        //x点xx分xx秒时间触发
 //        while (!Util.timeTrigger(8, 00, 00)) {
 //        }
 

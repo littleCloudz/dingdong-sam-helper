@@ -551,11 +551,11 @@ public class Api {
                 if("goodsModule".equals(moduleSign)) {
                     JSONObject firstGood = module.getJSONObject("renderContent").getJSONArray("goodsList").getJSONObject(0);
                     System.out.println(firstGood);
-                    /**
-                     * "spuId": "49043963", 清洁用品套餐
-                     */
-                    if (!"49043963".equals(firstGood.getStr("spuId"))) {
+
+                    String currentSpuId = "50881726"; // 食品及日用品套餐
+                    if (!currentSpuId.equals(firstGood.getStr("spuId"))) {
                         System.out.println(Util.getCurrentTime() + "套餐已更新");
+                        Api.getSamCapacity();
                         Api.play();
                     } else {
                         System.out.println(Util.getCurrentTime() + "没有更新套餐");
@@ -571,4 +571,56 @@ public class Api {
         }
 
     }
+
+    /**
+     * 获取山姆配送信息
+     *
+     */
+    public static Map<String, Object> getSamCapacity() {
+        try {
+
+            HttpRequest httpRequest = HttpUtil.createPost("https://api-sams.walmartmobile.cn/api/v1/sams/delivery/portal/getCapacityData");
+            Map<String, String> headers = UserConfig.getHeaders4Sam();
+            httpRequest.addHeaders(headers);
+
+//            Map<String, Object> request = UserConfig.getBody4Sam();
+            Map<String, Object> request = new HashMap<>();
+            Object[] array = new Object[] {
+                    "2022-05-03",
+                    "2022-05-04",
+                    "2022-05-05",
+                    "2022-05-06",
+                    "2022-05-07",
+                    "2022-05-08" };
+            JSONArray perDateList  = JSONUtil.parseArray(array);
+            request.put("perDateList", perDateList);
+            request.put("storeDeliveryTemplateId", "1194215466265126934");
+
+            String param = JSONUtil.toJsonStr(request);
+            String result = httpRequest.body(param, "application/json").execute().body();
+            JSONObject object = JSONUtil.parseObj(result);
+//            System.out.println(object);
+            JSONArray capcityResponseList = object.getJSONObject("data").getJSONArray("capcityResponseList");
+            JSONObject capacityResponse = capcityResponseList.getJSONObject(0);
+            System.out.println(capcityResponseList);
+            if(capacityResponse.getBool("dateISFull")){
+                System.out.println(Util.getCurrentTime() + "今日配送时间已满");
+            } else {
+                System.out.println(Util.getCurrentTime() + "今日可配送");
+                Api.play();
+            }
+//
+//            print(false, Util.getCurrentTime() + "无可选的配送时间");
+//            context.put("noReserve", new HashMap<>());
+//            context.remove("multiReserveTimeMap");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 刷新配送时间
+     */
+
 }

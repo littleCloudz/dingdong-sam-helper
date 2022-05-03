@@ -1,0 +1,381 @@
+[
+  {
+    "type": "element",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "is_sdk_auto_track": true,
+      "is": "components/vTrackText/vTrackText",
+      "type": "tap",
+      "element_id": "#__e",
+      "eventOpts": [
+        [
+          "tap",
+          [
+            [
+              "track",
+              [
+                "b4e9",
+                "onClick",
+                "$event",
+                "click"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "time": 1651465993146,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 102
+  },
+  {
+    "type": "element",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "is_sdk_auto_track": true,
+      "is": "pages/mainPackage/cate/components/FirstCate/FirstCate",
+      "type": "tap",
+      "element_id": "#__e",
+      "eventOpts": [
+        [
+          "tap",
+          [
+            [
+              "track",
+              [
+                "be09",
+                "tapFirstCategory",
+                "$event",
+                "click",
+                5,
+                "$0",
+                5,
+                "isTrackVFor"
+              ],
+              [
+                [
+                  [
+                    "cateList",
+                    "id",
+                    "61849cb5855432332d85a622"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "time": 1651465993150,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 103
+  },
+  {
+    "type": "expose_sku_component",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "sku": {
+        "sku_id": "626ce05687d65195bdbc40fd",
+        "sku_name": "626ce05687d65195bdbc40fd"
+      },
+      "spu": {
+        "spu_id": "626ce05687d65195bdbc40fd",
+        "spu_name": "626ce05687d65195bdbc40fd"
+      },
+      "primary_image_url": "https://imgnew.ddimg.mobi/product/4c9a7cb14de6432088374cbe165893e6.jpg?width=800&height=800",
+      "time": 1651465994795,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 104
+  },
+  {
+    "type": "expose_sku_component",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "sku": {
+        "sku_id": "623192ba1fcc12526e2550a1",
+        "sku_name": "623192ba1fcc12526e2550a1"
+      },
+      "spu": {
+        "spu_id": "623192ba1fcc12526e2550a1",
+        "spu_name": "623192ba1fcc12526e2550a1"
+      },
+      "primary_image_url": "https://imgnew.ddimg.mobi/product/dbca24faee14426a9b862c9cdf7d2f72.jpg?width=800&height=800",
+      "time": 1651465994836,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 105
+  },
+  {
+    "type": "expose_sku_component",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "sku": {
+        "sku_id": "60814f13b6af8321039cb13d",
+        "sku_name": "60814f13b6af8321039cb13d"
+      },
+      "spu": {
+        "spu_id": "60814f13b6af8321039cb13d",
+        "spu_name": "60814f13b6af8321039cb13d"
+      },
+      "primary_image_url": "https://imgnew.ddimg.mobi/product/b6eb29833bc2423a9425a6403ccaf800.jpg?width=800&height=800",
+      "time": 1651465994836,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 106
+  },
+  {
+    "type": "expose_sku_component",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "sku": {
+        "sku_id": "607553384c7b7c57bca3602b",
+        "sku_name": "607553384c7b7c57bca3602b"
+      },
+      "spu": {
+        "spu_id": "607553384c7b7c57bca3602b",
+        "spu_name": "607553384c7b7c57bca3602b"
+      },
+      "primary_image_url": "https://imgnew.ddimg.mobi/product/478952dcc07f4ce3b8c23cd0c53be4cb.jpg?width=800&height=800",
+      "time": 1651465994840,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 107
+  },
+  {
+    "type": "expose_sku_component",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "sku": {
+        "sku_id": "60814f24b6af8321039cb13e",
+        "sku_name": "60814f24b6af8321039cb13e"
+      },
+      "spu": {
+        "spu_id": "60814f24b6af8321039cb13e",
+        "spu_name": "60814f24b6af8321039cb13e"
+      },
+      "primary_image_url": "https://imgnew.ddimg.mobi/product/97a6d9b1d2b64997adcc0a33d628b557.jpg?width=800&height=800",
+      "time": 1651465994861,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 108
+  },
+  {
+    "type": "element",
+    "props": {
+      "page": "pages/mainPackage/cate/cate",
+      "page_title": "分类",
+      "is_sdk_auto_track": true,
+      "is": "pages/mainPackage/home/carousel/index",
+      "type": "change",
+      "element_id": "#__e",
+      "eventOpts": [
+        [
+          "change",
+          [
+            [
+              "change",
+              [
+                "$event"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "time": 1651465995293,
+      "wx_user": {
+        "app_id": "wx1e113254eda17715",
+        "local_id": "1649555721484-119ac624-3af3-4ee8-a01a-f627b036dff1",
+        "open_id": "osP8I0TkWkj2Ual979tS5jVgcq2I",
+        "union_id": "oxgtOuMY9Pz-zSkLo07AIwpZrvic",
+        "get_auto_id_time": 1651465617006
+      },
+      "system_info": {
+        "brand": "iPhone",
+        "model": "iPhone 13<iPhone14,5>",
+        "version": "8.0.20",
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "system": "iOS 15.4.1",
+        "platform": "ios"
+      },
+      "framework_info": {},
+      "chan": {
+        "chan_wxapp_scene": 1089,
+        "chan_id": ""
+      },
+      "sr_sdk_version": "1.3.15"
+    },
+    "from": "sr-sdk-wxapp",
+    "tracking_id": "1651465615221-b9368d44-8c39-48c0-b29b-37f781040ab8",
+    "log_id": 109
+  }
+]
