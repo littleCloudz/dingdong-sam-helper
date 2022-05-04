@@ -1,4 +1,5 @@
 import cn.hutool.core.util.RandomUtil;
+import cn.hutool.json.JSONObject;
 
 /**
  * 哨兵捡漏模式 可长时间运行 此模式不能用于高峰期下单
@@ -38,13 +39,32 @@ public class Sentinel4Sam {
                     if (longWaitCount++ > 60) {
                         longWaitCount = 0;
                         System.out.println("执行60次循环后，休息10分钟左右再继续");
-                        Util.sleep(RandomUtil.randomInt(500000, 700000));
+//                        Util.sleep(RandomUtil.randomInt(500000, 700000));
                     } else {
                         Util.sleep(RandomUtil.randomInt(sleepMillisMin, sleepMillisMax));
                     }
                 }
 
-                Api.getSamCovid19ProductList();
+                JSONObject firstGood = Api.getSamCovid19ProductList();
+//                JSONObject firstGood = Api.getSamCategoryProductList();
+//                System.out.println(firstGood);
+                if (firstGood == null) {
+                    continue;
+                }
+                String currentSpuId = "51795449"; // 鲜食套餐
+                System.out.println(firstGood.getStr("spuId") + " " + firstGood.getStr("title"));
+                System.out.println(firstGood.getStr("subTitle"));
+                if (!currentSpuId.equals(firstGood.getStr("spuId"))) {
+                    System.out.println(Util.getCurrentTime() + "套餐已更新");
+                    Api.getSamCapacity();
+                    Api.play();
+                    break;
+                } else {
+                    System.out.println(Util.getCurrentTime() + "没有更新套餐");
+//                    Api.getSamCapacity();
+                    continue;
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

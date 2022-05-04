@@ -523,7 +523,7 @@ public class Api {
      * getSamCovid19ProductList
      * https://api-sams.walmartmobile.cn/api/v1/sams/decoration/portal/show/getPageData
      */
-    public static void getSamCovid19ProductList() {
+    public static JSONObject getSamCovid19ProductList() {
         try {
 
             HttpRequest httpRequest = HttpUtil.createPost("https://api-sams.walmartmobile.cn/api/v1/sams/decoration/portal/show/getPageData");
@@ -550,17 +550,18 @@ public class Api {
                 String moduleSign = module.getStr("moduleSign");
                 if("goodsModule".equals(moduleSign)) {
                     JSONObject firstGood = module.getJSONObject("renderContent").getJSONArray("goodsList").getJSONObject(0);
-                    System.out.println(firstGood);
+//                    System.out.println(firstGood);
+                    return firstGood;
 
-                    String currentSpuId = "50881726"; // 食品及日用品套餐
-                    if (!currentSpuId.equals(firstGood.getStr("spuId"))) {
-                        System.out.println(Util.getCurrentTime() + "套餐已更新");
-                        Api.getSamCapacity();
-                        Api.play();
-                    } else {
-                        System.out.println(Util.getCurrentTime() + "没有更新套餐");
-                    }
-                    return;
+//                    String currentSpuId = "51775634"; // 食品&日用品组合套餐
+//                    if (!currentSpuId.equals(firstGood.getStr("spuId"))) {
+//                        System.out.println(Util.getCurrentTime() + "套餐已更新");
+//                        Api.getSamCapacity();
+//                        Api.play();
+//                    } else {
+//                        System.out.println(Util.getCurrentTime() + "没有更新套餐");
+//                    }
+//                    return;
                 }
             }
 
@@ -569,8 +570,82 @@ public class Api {
             Api.play();
             e.printStackTrace();
         }
+        return null;
+    }
+
+
+    /**
+     * 获取分类列表页
+     * https://api-sams.walmartmobile.cn/api/v1/sams/goods-portal/grouping/list
+     */
+    public static JSONObject getSamCategoryProductList() {
+        try {
+
+            HttpRequest httpRequest = HttpUtil.createPost("https://api-sams.walmartmobile.cn/api/v1/sams/goods-portal/grouping/list");
+            Map<String, String> headers = UserConfig.getHeaders4Sam();
+            httpRequest.addHeaders(headers);
+//            Map<String, Object> request = UserConfig.getBody4Sam();
+
+            JSONObject request = new JSONObject();
+            request.put("pageSize", 20);
+            request.put("isReversOrder", false);
+            request.put("useNewPage", true);
+            request.put("uid", "262685834");
+            request.put("isFastDelivery", false);
+            request.put("secondCategoryId", "156017");
+            request.put("pageNum", 1);
+            Object[] frontCategoryIdsArray = new Object[] { "156017", "182055", "156018" };
+            JSONArray frontCategoryIds  = JSONUtil.parseArray(frontCategoryIdsArray);
+            request.put("frontCategoryIds", frontCategoryIds);
+            List<Map<String, Object>> storeInfoVOList = new ArrayList<>();
+            Map<String, Object> storeInfo1 = new HashMap<>();
+            storeInfo1.put("storeId", "9991");
+            storeInfo1.put("storeType", "32");
+            Object[] storeDeliveryAttrArray1 = new Object[] { 10 };
+            storeInfo1.put("storeDeliveryAttr", storeDeliveryAttrArray1);
+            storeInfoVOList.add(storeInfo1);
+            Map<String, Object> storeInfo2 = new HashMap<>();
+            storeInfo2.put("storeId", "4807");
+            storeInfo2.put("storeType", "2");
+            Object[] storeDeliveryAttrArray2 = new Object[] { 3, 4, 5, 6, 7, 12, 13 };
+            storeInfo2.put("storeDeliveryAttr", storeDeliveryAttrArray2);
+            storeInfoVOList.add(storeInfo2);
+            Map<String, Object> storeInfo3 = new HashMap<>();
+            storeInfo3.put("storeId", "9996");
+            storeInfo3.put("storeType", "8");
+            Object[] storeDeliveryAttrArray3 = new Object[] { 1 };
+            storeInfo3.put("storeDeliveryAttr", storeDeliveryAttrArray3);
+            storeInfoVOList.add(storeInfo3);
+            request.put("storeInfoVOList", storeInfoVOList);
+            Map<String, Object> addressVO = new HashMap<>();
+            storeInfo1.put("detailAddress", "江凌苑55号楼1303室");
+            storeInfo1.put("cityName", "上海市");
+            storeInfo1.put("countryName", "中国");
+            storeInfo1.put("districtName", "浦东新区");
+            storeInfo1.put("provinceName", "上海市");
+            request.put("addressVO", addressVO);
+//            System.out.println(request);
+
+
+            String param = JSONUtil.toJsonStr(request);
+            String result = httpRequest.body(param, "application/json").execute().body();
+            JSONObject object = JSONUtil.parseObj(result);
+//            System.out.println(object);
+            JSONObject data = object.getJSONObject("data");
+//            System.out.println(data);
+            JSONArray dataList = data.getJSONArray("dataList");
+            JSONObject firstGood = dataList.getJSONObject(0);
+            return firstGood;
+
+        } catch (Exception e) {
+            System.out.println(Util.getCurrentTime() + "报错了");
+            Api.play();
+            e.printStackTrace();
+        }
+        return null;
 
     }
+
 
     /**
      * 获取山姆配送信息
@@ -609,18 +684,10 @@ public class Api {
                 System.out.println(Util.getCurrentTime() + "今日可配送");
                 Api.play();
             }
-//
-//            print(false, Util.getCurrentTime() + "无可选的配送时间");
-//            context.put("noReserve", new HashMap<>());
-//            context.remove("multiReserveTimeMap");
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
-    /**
-     * 刷新配送时间
-     */
 
 }

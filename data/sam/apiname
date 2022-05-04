@@ -8,3 +8,4 @@ https://api-sams.walmartmobile.cn/api/v1/sams/delivery/portal/getCapacityData
 403: 从CMCC-343p（和charles代理无关)切换到CU_xU8Q，就没有问题。怀疑是风控了ip。10分钟之内解除了。
 
 
+api-sams.walmartmobile.cn/134.175.76.88:443

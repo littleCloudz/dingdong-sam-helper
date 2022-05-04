@@ -100,17 +100,16 @@ public class UserConfig {
      */
     public static Map<String, String> getHeaders4Sam() {
         Map<String, String> headers = new HashMap<>();
+        headers.put("auth-token", "0f7d247a1a3e9c821414e50345a839f3c50f4d30e3758cca3bc100afe52c902d");
 
         // ------------ 小程序 ------------
 //        headers.put("content-type", "application/json;charset=utf-8");
 //        headers.put("device-type", "mini_program");
-//        headers.put("auth-token", "0f7d247a1a3e9c82d71c8b92ae68495cc50f4d30e3758ccac318a06ce5ce0cbe");
 //        headers.put("accept-encoding", "gzip,compress,br,deflate");
 //        headers.put("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.20(0x1800142f) NetType/WIFI Language/zh_CN");
 //        headers.put("referer", "https://servicewechat.com/wx1e113254eda17715/425/page-frame.html");
 
         // ------------ App ------------
-        headers.put("auth-token", "0f7d247a1a3e9c821414e50345a839f3c50f4d30e3758cca40a9ab8d436f08bb");
         headers.put("app-version", "5.0.50.1");
         headers.put("longitude", "121.734363");
         headers.put("latitude", "31.172187000000001");
